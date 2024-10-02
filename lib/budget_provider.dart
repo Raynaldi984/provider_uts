@@ -15,12 +15,6 @@ class BudgetProvider with ChangeNotifier {
     notifyListeners(); // Memberitahu UI bahwa ada perubahan data
   }
 
-  // Method untuk menghapus transaksi dari list _budgets
-  void removeBudget(Budget budget) {
-    _budgets.remove(budget); // Hapus transaksi dari list
-    notifyListeners(); // Memberitahu UI untuk memperbarui tampilan
-  }
-
   // Getter untuk menghitung total pemasukan
   double get totalIncome =>
       _budgets.where((b) => !b.isExpense).fold(0.0, (sum, b) => sum + b.amount);
